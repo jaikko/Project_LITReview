@@ -7,7 +7,7 @@ from .models import User,Ticket, Review
 
 
 class RegisterForm(forms.Form):
-    username = forms.CharField(max_length=100, required=False, widget=forms.TextInput(attrs={'placeholder': "Nom d'utlisateur"}))
+    username = forms.CharField(max_length=100, required=False, widget=forms.TextInput(attrs={'placeholder': "Nom d'utilisateur"}))
     password = forms.CharField(max_length=32, widget=forms.PasswordInput, required=True)
     rePassword = forms.CharField(max_length=32, widget=forms.PasswordInput, required=True)
     
@@ -34,7 +34,7 @@ class LoginForm(forms.ModelForm):
         }
     def __init__(self, *args, **kwargs):
         super(LoginForm, self).__init__(*args, **kwargs)
-        self.fields['username'].widget.attrs['placeholder'] = "Nom d'utlisateur"
+        self.fields['username'].widget.attrs['placeholder'] = "Nom d'utilisateur"
         self.fields['password'].widget.attrs['placeholder'] = 'Mot de passe'
     
     
