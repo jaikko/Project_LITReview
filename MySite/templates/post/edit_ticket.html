@@ -1,0 +1,24 @@
+{% extends 'base.html' %} {% block content %}
+<h1>Modifier un Ticket</h1>
+
+<form id="edit_ticket" method="POST" action="" enctype='multipart/form-data'>
+    {% csrf_token %}
+
+    <div class="align_input">
+        <label for="title">Title:</label> {{ form.title }}
+    </div>
+    </br>
+    <div class="align_input">
+        <label for="description">Description:</label> {{ form.description}}
+    </div>
+    </br>
+    <div class="align_input">
+        <label>Image:</label><img src="{{post.image.url}}">
+    </div>
+    <br>
+    <div class="align_input">
+        {{ form.image }}
+    </div>
+
+    <button class="btn first end" type="submit" value="Update">Modifier</button>
+</form> {% endblock %}

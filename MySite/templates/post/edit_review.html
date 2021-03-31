@@ -1,0 +1,38 @@
+{% extends 'base.html' %} {% block content %}{% load tag_library %}
+<h1>Modifier votre critique</h1>
+
+<form id="newreview" method="POST" action="" enctype='multipart/form-data'>
+
+    {% csrf_token %} {% for i in tickets%} {% if post.ticket_id == i.id %}
+    <p class="p_left">Vous êtes en train de poster en réponse à {{i.user}}</p>
+    <div class="content_edit_review">
+        <p>{{i.title}}</p>
+        <p>{{i.description}}</p>
+        {% if i.image %}
+        <img src="{{i.image.url}}"> {% endif %}
+    </div>
+    {% endif %} {% endfor %}
+
+    <div class="separator"></div>
+    <span> Critique</span>
+    <br>
+    <br>
+    <div class="marge">
+        <div class="align_input">
+            <label for="headline">Title:</label> {{ form.headline }}
+        </div>
+        </br>
+        <div class="align_input">
+            <label for="rating">Note:</label> {% for c in 0|range:6 %} {% if c != post.rating|to_int %} <input type="radio" id="rating-{{c}}" name="rating" value="{{c}}" /><label class="radio_marge" for="rating-{{c}}">{{c}}</label> {% else %}
+            <input type="radio" id="rating-{{c}}" name="rating" value="{{c}}" checked="checked" /><label class="radio_marge" for="rating-{{c}}">{{c}}</label> {% endif %} {% endfor%}
+
+        </div>
+        </br>
+        <div class="align_input">
+            <label for="body">Commentaire:</label>{{ form.body}}
+        </div>
+    </div>
+    <button class="btn first end">Modifier</button>
+    </div>
+</form>
+{% endblock %}

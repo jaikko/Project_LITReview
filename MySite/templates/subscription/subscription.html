@@ -1,0 +1,24 @@
+{% extends 'base.html' %} {% block content %}
+<h1>Suivre d'autres utilisateurs</h1>
+<form id="sub_form" method="POST" action="{% url 'subscription' %}">
+    {{form.follow}}
+    <button class="btn end inline">Envoyer</button>
+</form>
+<h1>Abonnement</h1>
+<table>
+    {% for i in user%}
+    <tr>
+        <td> {{i.followed_user}}</td>
+        <td> <a href="{% url 'unsubscription' id=i.followed_user.id %}" part.id>Se désabonner</a></td>
+    </tr>
+    {% endfor %}
+</table>
+<h1>Abonné</h1>
+<table>
+    {% for i in follower%}
+    <tr>
+        <td> {{i.user}}</td>
+    </tr>
+    {% endfor %}
+</table>
+{% endblock %}
