@@ -1,0 +1,10 @@
+{% extends 'base.html' %} {% block content %} {% csrf_token %}
+<form class="inline" action="{% url 'newticket' %}">
+    <button class="btn first">Demander une critique</button>
+</form>
+
+<form class="inline" action="{% url 'newreview' %}">
+    <button class="btn first">Créer une critique</button>
+</form>
+
+{% for post in posts %} {% if post.content_type == 'TICKET' %} {% include 'dashbord/ticket_snippet.html' %} <br> {%elif post.content_type == 'REVIEW' %} {% include 'dashbord/review_snippet.html' %} {% endif %} {% endfor %} {% endblock %}
