@@ -24,6 +24,7 @@ def index(request):
                 return redirect("dashbord")
             else:
                 messages.error(request, 'Identifiants incorrects')
+                return redirect("dashbord")
     else: 
         form = LoginForm()
         return render(request, 'user/login.html',{'form': form} )
@@ -88,18 +89,22 @@ def createTicket(request):
     
 @csrf_exempt
 def subscription(request):
+    users = [ item.username for item in User.objects.all()]
     if request.user.is_authenticated:
         
         if request.method == "POST":
-              form = FollowUser(request.POST)
-              if form.is_valid(): 
+            form = FollowUser(request.POST)
+            if form.is_valid(): 
                 user = form.cleaned_data.get('follow', None)
+                if user not in users:
+                    return redirect('subscription')
                 pk = User.objects.get(username=user).pk
                 follow = UserFollows()
                 follow.user_id = request.user.id
                 follow.followed_user_id = pk
                 follow.save()
                 return redirect('subscription')
+
         else:
             form = FollowUser()
             user = UserFollows.objects.filter(user_id=request.user.id)
