@@ -1,0 +1,22 @@
+{% load i18n %}{% csrf_token %}
+<div class="ticket_snippet nospace">
+    <div class="p_align">
+        <p class="p_left">Vous avez publié un ticket</p>
+        {% language 'fr' %}
+        <p class="p_right"> {{post.time_created|date:"H:i, d F Y"}}</p> {% endlanguage %}
+    </div>
+    <p class="p_adjust"> {{post.title}}</p>
+    <p> {{post.description}}</p>
+    {% if post.image %}
+    <img src="{{post.image.url}}"> {% endif %}
+    <br>
+    <div class="align_right">
+        <form class="inline" action="{% url 'edit_ticket' id=post.id %}">
+            <button class="btn first end">Modifier</button>
+        </form>
+
+        <form class="inline" action="{% url 'deleteticket' id=post.id %}">
+            <button class="btn first end">Supprimer</button>
+        </form>
+    </div>
+</div>
