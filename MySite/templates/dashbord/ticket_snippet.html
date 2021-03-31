@@ -1,8 +1,9 @@
 {% load i18n %}{% csrf_token %}
 <form class="ticket_snippet" action="{% url 'answerticket' id=post.id %}">
     <div class="p_align">
-        <p class="p_left">{{post.user}} a demandé une critique</p>
-        {% language 'fr' %}
+        {% if post.user == user %}
+        <p class="p_left">Vous avez demandé une critique</p> {% else %}
+        <p class="p_left">{{post.user}} a demandé une critique</p>{% endif %} {% language 'fr' %}
         <p class="p_right"> {{post.time_created|date:"H:i, d F Y"}}</p> {% endlanguage %}
     </div>
     <p class="p_adjust"> {{post.title}}</p>
