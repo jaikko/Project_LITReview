@@ -56,7 +56,7 @@ def dashbord(request):
         reviews = reviews.annotate(content_type=Value('REVIEW', CharField()))
         tickets =  Ticket.objects.filter(Q (user_id= request.user.id) | Q(user_id__in = liste))
         tickets= tickets.annotate(content_type=Value('TICKET', CharField()))
-        id_tickets = [ item.id for item in Review.objects.all()]
+        id_tickets = [ item.ticket_id for item in Review.objects.all()]
         all_tickets =Ticket.objects.all()
         # combine and sort the two types of posts
         posts = sorted(
