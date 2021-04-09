@@ -1,4 +1,3 @@
-
 from django.core.validators import MaxValueValidator, MinValueValidator
 from django.db import models
 from django.db.models.fields import EmailField, DateTimeField
@@ -26,8 +25,6 @@ class Ticket(models.Model):
     image =models.ImageField(null=True, blank=True, upload_to = 'images/')
     time_created = models.DateTimeField(auto_now_add=True)
     
-    
-
 class UserFollows(models.Model):
     # Your UserFollows model definition goes here
     user = models.ForeignKey(to=settings.AUTH_USER_MODEL, on_delete=models.CASCADE, related_name="following")
@@ -37,8 +34,6 @@ class UserFollows(models.Model):
         # for unique user-user_followed pairs
         unique_together = ('user', 'followed_user', )
         
-  
-
 class Review(models.Model):
     ticket = models.ForeignKey(to=Ticket, on_delete=models.CASCADE, related_name = "reviews")
     rating = models.PositiveSmallIntegerField(
@@ -49,4 +44,3 @@ class Review(models.Model):
     user = models.ForeignKey(
         to=settings.AUTH_USER_MODEL, on_delete=models.CASCADE)
     time_created = models.DateTimeField(auto_now_add=True)
-    
