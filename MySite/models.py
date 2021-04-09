@@ -37,13 +37,7 @@ class UserFollows(models.Model):
         # for unique user-user_followed pairs
         unique_together = ('user', 'followed_user', )
         
-    
-    def get_id_follow(user):
-        liste = []
-        follow = UserFollows.objects.filter(user_id=user.id)
-        for i in follow:
-            liste.append(i.followed_user.id) 
-        return liste
+  
 
 class Review(models.Model):
     ticket = models.ForeignKey(to=Ticket, on_delete=models.CASCADE, related_name = "reviews")
