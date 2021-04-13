@@ -20,4 +20,4 @@ Il est nécessaire d'avoir Python 3.7 et Git installé sur le PC.
 8. Puis éxécuter ```python manage.py migrate```
 9. Lancez le serveur avec la commande ```python manage.py runserver```
 10.Se rendre à l'adresse suivante http://127.0.0.1:8000/ pour accéder au site 
-10. Se rendre à l'adresse suivante http://127.0.0.1:8000/ pour accéder au site 
+
