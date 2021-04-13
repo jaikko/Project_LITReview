@@ -11,7 +11,6 @@ https://docs.djangoproject.com/en/3.1/ref/settings/
 """
 
 
-
 from pathlib import Path
 import os
 
@@ -59,7 +58,8 @@ AUTH_USER_MODEL = 'MySite.User'
 
 LOGOUT_REDIRECT_URL = '/'
 
-#Authentication backends
+# Authentication backends
+
 AUTHENTICATION_BACKENDS = (
         'django.contrib.auth.backends.ModelBackend',
     )
@@ -79,7 +79,7 @@ TEMPLATES = [
                 'django.contrib.messages.context_processors.messages',
             ],
             'libraries':{
-            'my_templatetag': 'MySite.templatetags.tag_library',
+                'my_templatetag': 'MySite.templatetags.tag_library',
 
             }
         },
@@ -138,8 +138,8 @@ USE_TZ = True
 
 STATIC_URL = '/static/'
 
-#Image
-STATICFILES_DIRS = (os.path.join(BASE_DIR, 'static'), ) 
+# Image
+STATICFILES_DIRS = (os.path.join(BASE_DIR, 'static'),)
 STATIC_ROOT = os.path.join(BASE_DIR, 'staticfiles')
-MEDIA_URL = '/media/' 
+MEDIA_URL = '/media/'
 MEDIA_ROOT = os.path.join(BASE_DIR, 'media')
