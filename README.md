@@ -16,7 +16,5 @@ Il est nécessaire d'avoir Python 3.7 et Git installé sur le PC.
 4. Installer l'environnement virtuel en éxécutant ``` virtualenv -p python3 venv ```
 5. Activer le avec la commande   ``` source venv/Scripts/activate ```
 6. Installer les modules avec  ```pip install -r requirements.txt ```
-7. Pour la créaton de la BDD, lancez ```python manage.py makemigrations```
-8. Puis éxécuter ```python manage.py migrate```
-9. Lancez le serveur avec la commande ```python manage.py runserver```
-10. Se rendre à l'adresse suivante http://127.0.0.1:8000/ pour accéder au site 
+7. Lancez le serveur avec la commande ```python manage.py runserver```
+8. Se rendre à l'adresse suivante http://127.0.0.1:8000/ pour accéder au site 
