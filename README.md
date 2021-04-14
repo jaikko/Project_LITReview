@@ -22,7 +22,7 @@ Il est nécessaire d'avoir Python 3.7 et Git installé sur le PC.
 **Utilisation**
 
 Une fois que vous êtes sur la page d'accueil, vous pouvez vous connectez. Si vous n'êtes pas enregistré, 
-cliquez sur le bouton "s'incrire". 
+cliquez sur le bouton "s'inscrire". 
 
 Dès que vous êtes connectés, vous accéder à vos flux. Sur cette page, il est possible de répondre à un ticket, 
 créer un ticket et créer une critique. On peut avoir accès aux autres pages:
