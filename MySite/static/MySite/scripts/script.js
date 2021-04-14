@@ -32,8 +32,8 @@ $(document).ready(function() {
         } else {
             $(".underline_user").css("border-bottom-color", red);
             count += 1;
-
         }
+
         if (pass == repass & pass.length > 1) {
             $(".underline_pwd").css("border-bottom-color", green);
         } else {
@@ -43,6 +43,8 @@ $(document).ready(function() {
 
         if (count == 0) {
             $("#btn_registered").prop("disabled", false)
+        } else {
+            $("#btn_registered").prop("disabled", true)
         }
 
     });
