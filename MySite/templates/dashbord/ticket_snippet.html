@@ -10,5 +10,5 @@
     <p> {{post.description}}</p>
     {% if post.image %}
     <img src="{{post.image.url}}">{% endif %} {% if post.id not in id_tickets and user.id != post.user_id %}
-    <button class="btn first end">Envoyer</button>{% endif %}
+    <button class="btn first end">Créer une critique</button>{% endif %}
 </form>
