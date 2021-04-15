@@ -12,9 +12,13 @@
         <label for="description">Description:</label> {{ form.description}}
     </div>
     </br>
+
+    {% if post.image %}
     <div class="align_input">
         <label>Image:</label><img src="{{post.image.url}}">
     </div>
+    {% endif %}
+
     <br>
     <div class="align_input">
         {{ form.image }}
