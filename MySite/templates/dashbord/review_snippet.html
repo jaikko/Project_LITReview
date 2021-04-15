@@ -15,7 +15,11 @@
 
     {% for i in all_tickets %} {% if post.ticket_id == i.id %}
     <div class="content_review">
+        {% if i.user == post.user %}
+        <p> Ticket - Vous</p>
+        {% else %}
         <p> Ticket - {{i.user}}</p>
+        {% endif %}
         <p>{{i.title}}</p>
         {% if i.image %}
         <img src="{{i.image.url}}"> {% endif %}
